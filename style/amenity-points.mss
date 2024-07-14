@@ -2457,6 +2457,12 @@
       text-halo-radius: @standard-halo-radius;
       text-halo-fill: @standard-halo-fill;
       [feature = 'highway_bus_stop'] {
+        ["name" != null]["local_ref" = null] {
+          text-name: "[name]";
+        }
+        ["name" != null]["local_ref" != null] {
+          text-name: [name] + " (" + [ref] + ")";
+        }
         text-dy: 9;
       }
       [int_access = 'restricted'] {
